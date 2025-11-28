@@ -4,15 +4,10 @@ Modern ve responsive bir dashboard uygulaması. Next.js App Router, React ve Tai
 
 ## Özellikler
 
-- ⚡ Next.js 15 App Router
+- ⚡ Next.js 16 App Router
 - ⚛️ React 19
 - 🎨 Tailwind CSS 4
 - 📱 Responsive tasarım
-- 🔐 Dashboard sayfaları
-- 📊 İstatistik kartları
-- 👥 Kullanıcı yönetimi
-- 📈 Analytics sayfası
-- ⚙️ Ayarlar sayfası
 
 ## Kurulum
 
@@ -36,9 +31,6 @@ npm run dev
 maglo/
 ├── app/                    # Next.js App Router
 │   ├── dashboard/         # Dashboard sayfaları
-│   │   ├── analytics/    # Analytics sayfası
-│   │   ├── settings/     # Ayarlar sayfası
-│   │   ├── users/        # Kullanıcılar sayfası
 │   │   ├── layout.tsx    # Dashboard layout
 │   │   └── page.tsx      # Dashboard ana sayfa
 │   ├── globals.css       # Global stiller
@@ -59,9 +51,6 @@ maglo/
 
 - **Ana Sayfa** (`/`) - Karşılama sayfası
 - **Dashboard** (`/dashboard`) - Ana dashboard sayfası
-- **Kullanıcılar** (`/dashboard/users`) - Kullanıcı listesi ve yönetimi
-- **Analytics** (`/dashboard/analytics`) - Detaylı analiz ve raporlar
-- **Ayarlar** (`/dashboard/settings`) - Uygulama ayarları
 
 ## Komutlar
 

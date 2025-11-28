@@ -159,7 +159,7 @@ export default function Sidebar() {
         </nav>
 
         {/* Bottom Menu */}
-        <div className="px-4 pb-30 sm:pb-15 space-y-1">
+        <div className="px-6 pb-8 space-y-1">
           {bottomItems.map((item) => {
             const Icon = item.icon;
             return (
