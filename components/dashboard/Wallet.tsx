@@ -52,8 +52,7 @@ export default function Wallet() {
         {/* First Card - Universal Bank (Dark) */}
         {firstCard && (
           <div
-            className="relative h-48 sm:h-56 rounded-xl sm:rounded-2xl overflow-hidden p-4 sm:p-6 text-white shadow-xl"
-            style={{ backgroundColor: firstCard.color }}
+            className="relative h-48 sm:h-56 rounded-xl sm:rounded-2xl bg-linear-to-br from-[#4A4A49] to-[#20201F] overflow-hidden p-4 sm:p-6 text-white shadow-xl"
           >
             {/* Card Content */}
             <div className="relative h-full flex flex-col justify-between">
