@@ -4,6 +4,7 @@ import "./globals.css";
 import { AuthProvider } from "@/context/AuthContext";
 import { ToastProvider } from "@/providers/ToastProvider";
 import ErrorBoundary from "@/components/ErrorBoundary";
+import NavigationLoader from "@/components/NavigationLoader";
 
 export const metadata: Metadata = {
   title: "Dashboard - Maglo",
@@ -27,6 +28,9 @@ export default function RootLayout({
     <html lang="en">
       <body className="antialiased">
         <ErrorBoundary>
+          <Suspense fallback>
+            <NavigationLoader />
+          </Suspense>
           <AuthProvider>
             <ToastProvider />
             {children}
