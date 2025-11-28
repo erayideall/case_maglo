@@ -1,6 +1,6 @@
 export default function LoadingSpinner() {
   return (
-    <div className="fixed inset-0 z-[150] flex items-center justify-center bg-white/80 backdrop-blur-sm">
+    <div className="fixed inset-0 z-150 flex items-center justify-center bg-white/80 backdrop-blur-sm">
       <div className="flex flex-col items-center gap-4">
         {/* Animated Spinner */}
         <div className="relative">
