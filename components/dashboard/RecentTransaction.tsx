@@ -111,7 +111,7 @@ export default function RecentTransaction() {
             {/* Type Column */}
             <div className="col-span-12 md:col-span-4 flex justify-between md:block mb-2 md:mb-0">
               <span className="text-xs text-gray-400 md:hidden">Type:</span>
-              <p className="text-sm text-gray-600 text-center">{transaction.type}</p>
+              <p className="text-sm text-[#929EAE] font-medium text-center">{transaction.type}</p>
             </div>
 
             {/* Amount Column - Hidden on mobile (shown next to name instead) */}

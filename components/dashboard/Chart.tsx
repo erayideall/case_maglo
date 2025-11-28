@@ -22,13 +22,41 @@ interface CustomTooltipProps {
     dataKey: string;
   }>;
   currency?: string;
+  activeDataKey?: string | null;
+  coordinate?: { x: number; y: number };
 }
 
-const CustomTooltip = ({ active, payload, currency = 'TRY' }: CustomTooltipProps) => {
+const CustomTooltip = ({ active, payload, currency = 'TRY', activeDataKey }: CustomTooltipProps) => {
   if (active && payload && payload.length) {
+    const incomeData = payload.find(p => p.dataKey === 'income');
+    const expenseData = payload.find(p => p.dataKey === 'expense');
+
     return (
-      <div className="bg-gray-900 text-white rounded-lg px-3 py-1.5 shadow-lg text-xs font-medium">
-        {formatCurrency(payload[0].value || 0, currency, { format: 'intl' })}
+      <div className="bg-[#F3F6F8] text-[#1B212D] rounded-lg px-3 py-2 shadow-lg text-xs font-medium space-y-1">
+        {incomeData && (
+          <div
+            className={`flex items-center gap-2 transition-opacity ${
+              activeDataKey && activeDataKey !== 'income' ? 'opacity-40' : 'opacity-100'
+            }`}
+          >
+            <div className="w-2 h-2 rounded-full bg-[#14b8a6]"></div>
+            <span className={activeDataKey === 'income' ? 'font-bold' : 'font-semibold'}>
+              {formatCurrency(incomeData.value || 0, currency, { format: 'intl' })}
+            </span>
+          </div>
+        )}
+        {expenseData && (
+          <div
+            className={`flex items-center gap-2 transition-opacity ${
+              activeDataKey && activeDataKey !== 'expense' ? 'opacity-40' : 'opacity-100'
+            }`}
+          >
+            <div className="w-2 h-2 rounded-full bg-[#bef264]"></div>
+            <span className={activeDataKey === 'expense' ? 'font-bold' : 'font-semibold'}>
+              {formatCurrency(expenseData.value || 0, currency, { format: 'intl' })}
+            </span>
+          </div>
+        )}
       </div>
     );
   }
@@ -53,6 +81,7 @@ export default function Chart() {
   const [currency, setCurrency] = useState('TRY');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [activeDataKey, setActiveDataKey] = useState<string | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -198,7 +227,11 @@ export default function Chart() {
               tickFormatter={formatNumberAbbreviated}
               domain={getYAxisDomain()}
             />
-            <Tooltip content={<CustomTooltip currency={currency} />} cursor={false} />
+            <Tooltip
+              content={<CustomTooltip currency={currency} activeDataKey={activeDataKey} />}
+              cursor={{ stroke: '#e5e7eb', strokeWidth: 1 }}
+              wrapperStyle={{ pointerEvents: 'none', zIndex: 100 }}
+            />
 
             <Line
               type="natural"
@@ -206,7 +239,13 @@ export default function Chart() {
               stroke="#14b8a6"
               strokeWidth={2.5}
               dot={false}
-              activeDot={{ r: 5, fill: '#14b8a6', strokeWidth: 0 }}
+              activeDot={{
+                r: 5,
+                fill: '#14b8a6',
+                strokeWidth: 0
+              }}
+              onMouseEnter={() => setActiveDataKey('income')}
+              onMouseLeave={() => setActiveDataKey(null)}
             />
             <Line
               type="natural"
@@ -214,7 +253,13 @@ export default function Chart() {
               stroke="#bef264"
               strokeWidth={2.5}
               dot={false}
-              activeDot={{ r: 5, fill: '#bef264', strokeWidth: 0 }}
+              activeDot={{
+                r: 5,
+                fill: '#bef264',
+                strokeWidth: 0
+              }}
+              onMouseEnter={() => setActiveDataKey('expense')}
+              onMouseLeave={() => setActiveDataKey(null)}
             />
           </LineChart>
         </ResponsiveContainer>

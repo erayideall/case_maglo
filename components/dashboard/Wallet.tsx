@@ -36,9 +36,9 @@ export default function Wallet() {
   const secondCard = cards[1];
 
   return (
-    <div className="bg-white rounded-2xl p-4 sm:p-6 pt-0 pb-3 z-0">
+    <div className="bg-white rounded-2xl p-4 sm:p-6 pt-[0!important] pb-[30px!important] z-0">
       {/* Header */}
-      <div className="flex items-center justify-between mb-4 sm:mb-5">
+      <div className="flex items-center justify-between mb-5 sm:mb-7">
         <h2 className="text-lg sm:text-xl font-semibold text-gray-900">Wallet</h2>
         <button className="text-gray-400 hover:text-gray-600 transition-colors">
           <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -102,7 +102,7 @@ export default function Wallet() {
 
         {/* Second Card - Commercial Bank (Light) */}
         {secondCard && (
-          <div className="h-44 sm:h-53 mx-3 sm:mx-5 -mt-16 sm:-mt-20 rounded-xl sm:rounded-2xl overflow-hidden p-4 sm:p-6 text-gray-800 backdrop-blur-xs">
+          <div className="h-44 sm:h-55 mx-3 sm:mx-5 -mt-16 sm:-mt-20 rounded-xl sm:rounded-2xl overflow-hidden p-4 sm:p-6 text-gray-800 backdrop-blur-xs">
             {/* Colorful Gradient Circle */}
             <div className="absolute top-0 right-0 w-full h-full bg-linear-to-l from-[#d4d4d4] to-[#d4d4d4] rounded-full blur-3xl"></div>
             {/* Card Content */}
