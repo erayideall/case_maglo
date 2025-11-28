@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+/* Kumbh Sans Font Family */
+@font-face {
+  font-family: 'Kumbh Sans';
+  src: url('/fonts/KumbhSans-Regular.woff2') format('woff2'),
+    url('/fonts/KumbhSans-Regular.woff') format('woff'),
+    url('/fonts/KumbhSans-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #1B212D;
+  --primary: #C8EE44;
+  --secondary: #363A3F;
+  --input: #78778B;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: 'Kumbh Sans', sans-serif;
+  margin: 0;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
